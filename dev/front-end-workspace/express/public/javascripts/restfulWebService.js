@@ -64,15 +64,18 @@ app.put('/user/:id',(request,response)=>{
     const id = request.params.id;
     const body = request.body;
 
-    const member = [];
-    for( let i = 0; users.length;i++){
-        if(users[i].id == body.id){
+    let member = [];
+
+    for( let i = 0; i < users.length;i++){
+        if(users[i].id == id){
             users[i].name = body.name;
             users[i].region = body.region;
-            member.push(users[i]);
+            member = (users[i]);
+            console.log('change');
         }
     }
     response.send(member);
+    console.log('success');
 });
 
 
