@@ -37,32 +37,54 @@ app.get('/user/:id',(request,response)=>{
 
 // post
 app.post('/user/:id',(request,response)=>{
+    const body = request.body;
+    // Exception handling
+    if (!body.name)
+        return response.status(400).send('Input your name');
+    else if (!body.region)
+        return response.status(400).send('Input your name');
 
+    const name = body.name;
+    const region = body.region;
+
+    const data = {
+        id : userCounter++,
+        name: name,
+        region : region
+    };
+    users.push(data);
+
+    console.log('success');
+
+    response.send(data);
 });
 
 // put
 app.put('/user/:id',(request,response)=>{
+    const id = request.params.id;
+    const body = request.body;
 
+    const member = [];
+    for( let i = 0; users.length;i++){
+        if(users[i].id == body.id){
+            users[i].name = body.name;
+            users[i].region = body.region;
+            member.push(users[i]);
+        }
+    }
+    response.send(member);
 });
 
 
 // delete
-app.delete('/user/:id',(request,response)=>{});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+app.delete('/user/:id',(request,response)=>{
+    const id = request.params.id;
+    let index = 0;
+    for (let i=0; i <users.length;i++){
+        if(users[i].id ==id){
+            index = i;
+        }
+    }
+    const member = users.splice(0,1);
+    response.send(member);
+});
