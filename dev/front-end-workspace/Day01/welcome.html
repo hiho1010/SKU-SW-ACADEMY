@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // alert('Hello WOrld...!');
+    </script>
+</head>
+
+<body>
+    <table border="1" bordercolor="blue" width="1000" height="600" align="center">
+        <tr bgcolor="blue" align="center">
+            <p>
+                <td colspan="4" span style="color:white">회원가입 양식</td>
+            </p>
+        </tr>
+        <tr align="center" bgcolor="skybule">
+            <td>구분</td>
+            <td>데이터입력</td>
+            <td>유효성검사</td>
+            <td>비고</td>
+        </tr>
+        <tr>
+            <td>아이디</td>
+            <td>
+                <form name="profile" action="/action_page.php" method="get" autocomplete="on">
+                    <input type="text" name="id">
+                    <input type="submit" value="아이디확인">
+                </form>
+            </td>
+            <td>8자리, 첫글자, 영문소문자</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>비밀번호</td>
+            <td>
+                <form name="profile" action="/action_page.php" method="get" autocomplete="on">
+                    <input type="text" name="id">
+                </form>
+                </td>
+                <td rowspan="2" align = "center" >비밀번호 일치</td>
+                <td rowspan="2" align = "center" ></td>
+        </tr>
+        <tr>
+            <td>비번확인</td>
+            <td>
+                <form name="profile" action="/action_page.php" method="get" autocomplete="on">
+                    <input type="text" name="id">
+                    <input type="submit" value="비번확인">
+                </form>
+                </td>
+        </tr>
+        <tr>
+            <td>성별</td>
+            <td><input type="radio" name="gender" value="male" checked> 남
+                <input type="radio" name="gender" value="female"> 여<br>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>관심분야</td>
+            <td>
+                <input type="checkbox" name="fruit1" value="apple"> 문학
+                <input type="checkbox" name="fruit2" value="grape"> 어학
+                <input type="checkbox" name="fruit3" value="peach"> 정보IT<br>
+                <input type="checkbox" name="fruit3" value="peach"> 과학
+                <input type="checkbox" name="fruit3" value="peach"> 수학
+                <input type="checkbox" name="fruit3" value="peach"> 예술<br>
+            </td>
+            <td>2~3개 사이 선택</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>자기소개</td>
+            <td>
+                <textarea>
+                    
+                </textarea>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr bgcolor="white" align="center">
+            <p>
+                <td colspan="4" span style="color:white">
+                    <form name="profile" action="/action_page.php" method="get" autocomplete="on">
+                        <input type="submit" value="가입">
+                        <input type="submit" value="초기화">
+                    </form>
+                </td>
+            </p>
+        </tr>
+    </table>
+</body>
+
+</html>

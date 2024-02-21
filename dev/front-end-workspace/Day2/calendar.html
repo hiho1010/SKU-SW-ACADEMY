@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function viewMonth(month) {
+
+        }
+        function viewMonth(s, l) {
+            viewMonth();
+            let ele = document.getElementById();
+
+        }
+
+        function makeCalendar(month) {
+            console.log(month)
+            let firstDay = new Date(2024, month, 1);
+            console.log(firstDay)
+            let lastDay = new Date(2024, month + 1, 0);
+            console.log(lastDay)
+            let test = new Date()
+        }
+
+    </script>
+</head>
+
+<body>
+    <input type="button" value="JAN" onclick="viewMonth()">
+    <input type="button" value="MAY" onclick=" makeCalendar(4)">
+    <input type="button" value="SEP" onclick="viewMonth()">
+    <div id = "cal">Calendar</div>
+    <label>
+        <select onchange="viewMonth(this.value)">
+            <option>--month--</option>
+            <option value = "1">JAN</option>
+            <option value = "2">FEB</option>
+            <option value = "3">MAR</option>
+            <option value = "5">MAY</option>
+            <option value = "9">SEP</option>
+        </select>
+    </label>
+</body>
+
+</html>

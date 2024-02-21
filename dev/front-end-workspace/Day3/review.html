@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            margin: 0px auto;
+            border: solid 1px black;
+            border-collapse: collapse;
+        }
+        tr, td {
+            border : solid 1px black;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .blue {
+            color: blue;
+        }
+
+        #purple {
+            color: purple;
+        }
+    </style>
+    <script>
+
+        function viewCalendar() {
+            //요일 배열 생성 나중에 index 추출용
+            let dayOfWeek = ['Sun','Mon','Thu','Wed','Thu','Fri','Sat'];
+            // text에서 year, month
+            let year = document.getElementById('year').value;
+            let month = document.getElementById('month').value;
+            // Date에 있는 요일 정보를 이용하여 빈칸 정하기
+            let cal = new Date(year,month,1);
+            let dow = String(cal.toString()).substring(0,3);
+            let _space = dayOfWeek.indexOf(dow) -1;
+            // Date를 이용해 마지막날 구하기
+            let cal2 = new Date(year,month+1,0);
+            let _lastDay = Number(cal2.toString().substring(8,10));
+            console.log(_lastDay)
+            // 정보를 통해 달력 생성
+            let calendar = makeCalendar(_space,_lastDay);
+            let ele = document.getElementById('pos');
+            ele.innerHTML = calendar;
+        }
+
+        function makeCalendar(_space,_lastDay){
+            console.log(_space,_lastDay);
+            let calendar = "";
+            let space = _space;
+            let lastDay = _lastDay;
+            let moreSpace = 7-((space+lastDay)%7);
+            calendar += `<table><tr><td>일</td><td>월</td><td>화</td><td>수</td><td>목</td><td>금</td><td>토</td></tr>`;
+            calendar += '<tr>';
+            for(let k=0;k<space;k++){
+                calendar += `<td></td>`;
+            }
+            for(let i=0;i<lastDay;i++){
+                calendar += `<td>${i+1}</td>`;
+                if((i+1+space)%7==0){
+                    calendar += '</tr><tr>';
+                }
+            }
+            for(let i=0;i<moreSpace;i++){
+                calendar += `<td></td>`;
+            }
+            calendar += "</tr></table>";
+
+            return calendar;
+        }
+    </script>
+</head>
+<body>
+<div id="pos"></div>
+<input type="text" size="2" id="year">Year
+<input type="text" size="2" id="month">Month
+<input type="button" value="view calendar" onclick="viewCalendar()">
+</body>
+</html>

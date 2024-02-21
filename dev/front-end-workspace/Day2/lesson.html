@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function test(){
+            alert('hello');
+            let ele = document.getElementById('position');
+            ele.innerHTML = "<h1>Welcome JavaScript</h1>";
+        }
+
+        function now(){
+            let date = new Date();
+            let hours = date.getHours();
+            let minutes = date.getMinutes();
+            let seconds = date.getSeconds();
+            let time = `${hours}:${minutes}:${seconds}`;
+            let ele = document.getElementById('position');
+            ele.innerHTML = time;
+        }
+        function example() {
+            setTimeout(() => {
+                alert("hello callback");
+            }, 3000);
+        }
+        window.onload = function (){
+            now();
+            setInterval(now,1000);
+        }
+
+        function logic() {
+
+        }
+    </script>
+    <style>
+        table {
+            margin: 8px auto;
+            border: solid 1px black;
+            border-collapse: collapse;
+        }
+        tr, td {
+            border: solid 1px black;
+        }
+        .red {
+            color: red;
+        }
+        .blue {
+            color : blue;
+        }
+        #purple {
+            color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <!---div는 자리 잡는 태그이다. -------->
+    <div id = "position"></div>
+    <table>
+        <tr><td class="red">SUN</td><td>MON</td><td>TUE</td><td>WED</td><td>THU</td><td>FRI</td><td class="red">SAT</td></tr>
+        <tr><td class="red">1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td class="red">7</td></tr>
+        <tr><td class="red">8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td class="red">14</td></tr>
+        <tr><td class="red">15</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td class="red">7</td></tr>
+        <tr><td class="red">22</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td class="red">7</td></tr>
+        <tr><td class="red">29</td><td>30</td><td>31</td><td></td><td></td><td></td><td class="red"></td></tr>
+    </table>
+    <input type="button" value="call" onclick="example()">
+    <input type="button" value="current-time" onclick="now()">
+</body>
+
+</html>
