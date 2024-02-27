@@ -1,7 +1,5 @@
 package sku.lesson2.db;
 
-import sku.lesson.db.DatabaseCenter;
-
 import java.sql.SQLException;
 
 public class JDBCMain {
@@ -14,10 +12,12 @@ public class JDBCMain {
     }
 
     public void testCRUD() {
-        String sql = "insert INTO Gisa(student_id, email, kor, math, sci, his, total, mgr_code, acc_code, loc_code) VALUES(990002, 'heeho1998@gmail.com', 80,85,90,85, 340, 'A', 'B', 'C');";
+        // String sql = "insert INTO Gisa(student_id, email, kor, math, sci, his, total, mgr_code, acc_code, loc_code) VALUES(990002, 'heeho1998@gmail.com', 80,85,90,85, 340, 'A', 'B', 'C');";
+        // String sql = "delete from Gisa where email LIKE '%hello%';";
+        Student student = new Student(990011, "heeho1998@gmail.com", 80,85,90,85, 340, "A", "B", "C");
         GisaDao dao = new GisaDao();
         try {
-            boolean flag = dao.insert(sql);
+            boolean flag = dao.insert(student);
             if (flag) {
                 System.out.println("insert success");
             } else {
