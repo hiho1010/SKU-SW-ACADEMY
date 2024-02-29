@@ -1,29 +1,49 @@
 package db_application_project;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class ConnectionManager {
-
-    public void getConnection() throws SQLException {
+    public static Connection getConnection() {
+        Connection con = null;
+        String user = "root";
+        String pwd = "";
+        String jdbc = "com.mysql.cj.jdbc.Driver";
+        String dbUrl = "jdbc:mysql://localhost:3306/sku";
         try {
-            String user = "root";
-            String pwd = "";
-            String jdbc = "";
-            String dbUrl = "jdbc:mysql://localhost:3306";
             Class.forName(jdbc);
-
-            Connection con = DriverManager.getConnection(dbUrl, user, pwd);
-        } catch (SQLException e) {
+            con = DriverManager.getConnection(dbUrl, user, pwd);
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         } finally {
             System.out.println("finally complete");
         }
+        return con;
     }
 
-    public void closeConnection() {
-        System.out.println("closeConnection()");
+    public static void closeConnection(ResultSet rs, Statement pstmt, Connection con) {
+        if(rs!=null) {
+            try {
+                rs.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(pstmt!=null) {
+            try {
+                pstmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(con!=null){
+            try {
+                con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 
