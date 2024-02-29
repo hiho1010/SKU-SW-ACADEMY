@@ -14,8 +14,6 @@ public class ConnectionManager {
             con = DriverManager.getConnection(dbUrl, user, pwd);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
-        } finally {
-            System.out.println("finally complete");
         }
         return con;
     }

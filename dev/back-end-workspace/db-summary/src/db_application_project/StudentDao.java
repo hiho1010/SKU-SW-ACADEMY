@@ -2,9 +2,9 @@ package db_application_project;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Logger;
 
 public class StudentDao {
     public boolean insert(ArrayList<Student> list) throws SQLException {
@@ -43,5 +43,74 @@ public class StudentDao {
         ConnectionManager.closeConnection(null, pstmt, con);
 
         return flag;
+    }
+    public String selectQuiz1(String sql) throws SQLException {
+        String answer = null;
+        Connection con = ConnectionManager.getConnection();
+        try {
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            ResultSet rs = pstmt.executeQuery();
+            while(rs.next()) {
+                answer = rs.getString(1);
+            }
+            ConnectionManager.closeConnection(rs, pstmt, con);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return answer;
+    }
+
+    public String selectQuiz2(String sql) throws SQLException {
+        String answer = null;
+        Connection con = ConnectionManager.getConnection();
+        try {
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            ResultSet rs = pstmt.executeQuery();
+            while(rs.next()) {
+                answer = rs.getString(1);
+            }
+            ConnectionManager.closeConnection(rs, pstmt, con);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return answer;
+    }
+
+    public String selectQuiz3(String sql) throws SQLException {
+
+        String answer = null;
+        Connection con = ConnectionManager.getConnection();
+        try {
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            ResultSet rs = pstmt.executeQuery();
+            while(rs.next()) {
+                answer = rs.getString(1);
+            }
+            ConnectionManager.closeConnection(rs, pstmt, con);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return answer;
+    }
+
+    public String selectQuiz4(String sql) throws SQLException {
+
+        String answer = null;
+        Connection con = ConnectionManager.getConnection();
+        try {
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            ResultSet rs = pstmt.executeQuery();
+            while(rs.next()) {
+                answer = rs.getString(1);
+            }
+            ConnectionManager.closeConnection(rs, pstmt, con);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return answer;
     }
 }
