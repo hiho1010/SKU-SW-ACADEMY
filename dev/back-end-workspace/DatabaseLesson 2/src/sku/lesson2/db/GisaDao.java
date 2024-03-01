@@ -38,7 +38,7 @@ public class GisaDao {
         return flag;
     }
 
-    public boolean insert(Student student) throws SQLException, ClassNotFoundException {
+    public boolean insert0(Student student) throws SQLException, ClassNotFoundException {
         boolean flag = false;
         Connection con = ConnectionManager.getConnection();
         String sql = "insert into gisa values (?,?,?,?,?,?,?,?,?,?,?)";
@@ -84,4 +84,9 @@ public class GisaDao {
         }
         return flag;
     }
+
+    public ArrayList<Student> select() {
+
+    }
+
 }

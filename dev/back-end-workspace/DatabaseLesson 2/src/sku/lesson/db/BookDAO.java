@@ -32,4 +32,6 @@ public class BookDAO {
 
         ConnectionManager.closeConnection(rs, stmt, con);
     }
+
+    public void
 }
