@@ -2,9 +2,12 @@ package im.heeho.blog.service;
 
 import im.heeho.blog.domain.Article;
 import im.heeho.blog.dto.AddArticleRequest;
+import im.heeho.blog.dto.UpdateArticleRequest;
 import im.heeho.blog.repository.BlogRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @Service
@@ -14,5 +17,27 @@ public class BlogService {
 
     public Article save(AddArticleRequest request) {
         return blogRepository.save(request.toEntity());
+    }
+
+    public List<Article> findAll() {
+        return blogRepository.findAll();
+    }
+
+    public Article findById(long id) {
+        return blogRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("not found: " + id));
+    }
+
+    public void delete(long id) {
+        blogRepository.deleteById(id);
+    }
+
+    public Article update(long id, UpdateArticleRequest request) {
+        Article article = blogRepository.findById(id)
+                .orElseThrow(()-> new IllegalArgumentException("not found: " + id) );
+
+        article.update(request.getTitle(), request.getContent());
+
+        return article;
     }
 }
